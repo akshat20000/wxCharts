@@ -1,0 +1,7 @@
+D:/the_project/wallet_app/wxCharts/build/CMakeFiles/wxcharts.dir
+D:/the_project/wallet_app/wxCharts/build/CMakeFiles/edit_cache.dir
+D:/the_project/wallet_app/wxCharts/build/CMakeFiles/rebuild_cache.dir
+D:/the_project/wallet_app/wxCharts/build/CMakeFiles/list_install_components.dir
+D:/the_project/wallet_app/wxCharts/build/CMakeFiles/install.dir
+D:/the_project/wallet_app/wxCharts/build/CMakeFiles/install/local.dir
+D:/the_project/wallet_app/wxCharts/build/CMakeFiles/install/strip.dir
