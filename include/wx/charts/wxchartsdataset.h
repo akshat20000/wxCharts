@@ -41,9 +41,15 @@ public:
     const wxChartsDatasetId& GetId() const;
     const wxString& GetName() const;
 
+    explicit wxChartsDataset(const wxString& label)  // Must exist
+    : m_label(label) {}
+
+const wxString& GetLabel() const { return m_label; }
+
 private:
     wxChartsDatasetId m_id;
     wxString m_name;
+    wxString m_label;
 };
 
 #endif

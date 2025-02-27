@@ -3,7 +3,8 @@
 wxLineChartDataset::wxLineChartDataset(const wxString& label, 
                                        const wxVector<double>& data, 
                                        const wxColor& color)
-    : wxChartDataset(label, color), m_data(data) {}
+    : wxChartsDataset(label),  
+      m_data(data) {}
 
 const wxVector<double>& wxLineChartDataset::GetData() const
 {

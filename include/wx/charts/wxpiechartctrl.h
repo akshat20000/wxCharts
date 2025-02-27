@@ -69,7 +69,7 @@ public:
         wxSharedPtr<wxPieChartOptions> &options, const wxPoint &pos = wxDefaultPosition,
         const wxSize &size = wxDefaultSize, long style = 0);
 
-private:
+public:
     virtual wxPieChart& GetChart();
     void OnUpdate(const std::map<wxString,wxChartSliceData> &data) override;
 

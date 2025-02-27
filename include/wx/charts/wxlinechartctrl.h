@@ -77,10 +77,13 @@ public:
     /// so that the window is visible but obviously not correctly sized.
     /// @param style Control style. For generic window styles, please
     /// see wxWindow.
-    wxLineChartCtrl(wxWindow *parent, wxWindowID id, wxChartsCategoricalData::ptr &data,
-        const wxChartsLineType &lineType, const wxLineChartOptions &options,
-        const wxPoint &pos = wxDefaultPosition, const wxSize &size = wxDefaultSize,
-        long style = 0);
+    wxLineChartCtrl(
+        wxWindow *parent,
+        wxWindowID id,
+        wxSharedPtr<wxChartsCategoricalData> data,
+        const wxPoint &pos = wxDefaultPosition,
+        const wxSize &size = wxDefaultSize
+    );
     
 private:
     virtual wxLineChart& GetChart();
