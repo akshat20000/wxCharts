@@ -55,10 +55,11 @@ protected:
     void DrawTooltips(wxGraphicsContext &gc);
 
 private:
-    virtual void DoSetSize(const wxSize &size) = 0;
-    virtual void DoFit() = 0;
-    virtual void DoDraw(wxGraphicsContext &gc, bool suppressTooltips) = 0;
-    virtual wxSharedPtr<wxVector<const wxChartsElement*>> GetActiveElements(const wxPoint &point) = 0;
+void DoSetSize(const wxSize &size) ;
+void DoFit() ;
+void DoDraw(wxGraphicsContext &gc, bool suppressTooltips) ;
+wxSharedPtr<wxVector<const wxChartsElement*>> GetActiveElements(const wxPoint &point) ;
+
 
 private:
     wxPoint m_position;

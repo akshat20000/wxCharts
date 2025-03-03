@@ -27,11 +27,14 @@
 
 #include "wxdoughnutandpiechartbase.h"
 #include "wxpiechartoptions.h"
+#include "wxpiechartdata.h"
+#include "wxchart.h"
+#include "wxchartselement.h" 
 
 /// A pie chart.
 
 /// \ingroup chartclasses
-class WXDLLIMPEXP_ISHIKO_CHARTS wxPieChart : public wxDoughnutAndPieChartBase
+class WXDLLIMPEXP_ISHIKO_CHARTS wxPieChart : public wxDoughnutAndPieChartBase ,wxChart
 {
 public:
     wxPieChart(wxPieChartData::ptr data, const wxSize &size);
@@ -39,6 +42,10 @@ public:
         const wxSize &size);
 
     virtual const wxChartCommonOptions& GetCommonOptions() const;
+    virtual void DoSetSize(const wxSize &size) override;
+    virtual void DoFit() override;
+    void DoDraw(wxGraphicsContext &gc, bool suppressTooltips) override;
+    wxSharedPtr<wxVector<const wxChartsElement*>> GetActiveElements(const wxPoint &point) override ;
 
 private:
     const wxDoughnutAndPieChartOptionsBase& GetOptions() const override;

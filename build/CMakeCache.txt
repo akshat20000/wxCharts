@@ -30,11 +30,8 @@ CMAKE_AR:FILEPATH=C:/mingw64/bin/ar.exe
 // MinSizeRel ...
 CMAKE_BUILD_TYPE:STRING=
 
-//Enable/Disable color output during build.
-CMAKE_COLOR_MAKEFILE:BOOL=ON
-
 //CXX compiler
-CMAKE_CXX_COMPILER:FILEPATH=C:/mingw64/bin/c++.exe
+CMAKE_CXX_COMPILER:FILEPATH=C:/mingw64/bin/g++.exe
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option
 // for the GCC compiler
@@ -89,6 +86,9 @@ CMAKE_EXE_LINKER_FLAGS_RELEASE:STRING=
 
 //Flags used by the linker during RELWITHDEBINFO builds.
 CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
+
+//Enable/Disable output of compile commands during generation.
+CMAKE_EXPORT_COMPILE_COMMANDS:BOOL=
 
 //Value Computed by CMake.
 CMAKE_FIND_PACKAGE_REDIRECTS_DIR:STATIC=D:/the_project/wallet_app/wxCharts/build/CMakeFiles/pkgRedirects
@@ -150,8 +150,8 @@ CMAKE_INSTALL_SYSCONFDIR:PATH=etc
 //Path to a program.
 CMAKE_LINKER:FILEPATH=C:/mingw64/bin/ld.exe
 
-//Path to a program.
-CMAKE_MAKE_PROGRAM:FILEPATH=C:/mingw64/bin/mingw32-make.exe
+//Program used to build from build.ninja files.
+CMAKE_MAKE_PROGRAM:FILEPATH=C:/mingw64/bin/ninja.exe
 
 //Flags used by the linker during the creation of modules during
 // all build types.
@@ -296,25 +296,25 @@ EXECUTABLE_OUTPUT_PATH:PATH=D:/the_project/wallet_app/wxCharts/build/bin
 LIBRARY_OUTPUT_PATH:PATH=D:/the_project/wallet_app/wxCharts/build/bin
 
 //Cleared.
-WX_adv:FILEPATH=D:/wxWidgets/build/lib/gcc_x64_lib/libwxmsw33u_adv.a
+WX_adv:FILEPATH=D:/wxWidgets/lib/gcc_dll/libwxmsw33u_adv.a
 
 //Cleared.
 WX_advd:FILEPATH=WX_advd-NOTFOUND
 
 //Cleared.
-WX_aui:FILEPATH=D:/wxWidgets/build/lib/gcc_x64_lib/libwxmsw33u_aui.a
+WX_aui:FILEPATH=D:/wxWidgets/lib/gcc_dll/libwxmsw33u_aui.a
 
 //Cleared.
 WX_auid:FILEPATH=WX_auid-NOTFOUND
 
 //Cleared.
-WX_base:FILEPATH=D:/wxWidgets/build/lib/gcc_x64_lib/libwxbase33u.a
+WX_base:FILEPATH=D:/wxWidgets/lib/gcc_dll/libwxbase33u.a
 
 //Cleared.
 WX_based:FILEPATH=WX_based-NOTFOUND
 
 //Cleared.
-WX_core:FILEPATH=D:/wxWidgets/build/lib/gcc_x64_lib/libwxmsw33u_core.a
+WX_core:FILEPATH=D:/wxWidgets/lib/gcc_dll/libwxmsw33u_core.a
 
 //Cleared.
 WX_cored:FILEPATH=WX_cored-NOTFOUND
@@ -326,37 +326,37 @@ WX_dbgrid:FILEPATH=WX_dbgrid-NOTFOUND
 WX_dbgridd:FILEPATH=WX_dbgridd-NOTFOUND
 
 //Cleared.
-WX_expat:FILEPATH=D:/wxWidgets/build/lib/gcc_x64_lib/libwxexpat.a
+WX_expat:FILEPATH=D:/wxWidgets/lib/gcc_dll/libwxexpat.a
 
 //Cleared.
 WX_expatd:FILEPATH=WX_expatd-NOTFOUND
 
 //Cleared.
-WX_gl:FILEPATH=D:/wxWidgets/build/lib/gcc_x64_lib/libwxmsw33u_gl.a
+WX_gl:FILEPATH=D:/wxWidgets/lib/gcc_dll/libwxmsw33u_gl.a
 
 //Cleared.
 WX_gld:FILEPATH=WX_gld-NOTFOUND
 
 //Cleared.
-WX_html:FILEPATH=D:/wxWidgets/build/lib/gcc_x64_lib/libwxmsw33u_html.a
+WX_html:FILEPATH=D:/wxWidgets/lib/gcc_dll/libwxmsw33u_html.a
 
 //Cleared.
 WX_htmld:FILEPATH=WX_htmld-NOTFOUND
 
 //Cleared.
-WX_jpeg:FILEPATH=D:/wxWidgets/build/lib/gcc_x64_lib/libwxjpeg.a
+WX_jpeg:FILEPATH=D:/wxWidgets/lib/gcc_dll/libwxjpeg.a
 
 //Cleared.
 WX_jpegd:FILEPATH=WX_jpegd-NOTFOUND
 
 //Cleared.
-WX_lexilla:FILEPATH=D:/wxWidgets/build/lib/gcc_x64_lib/libwxlexilla.a
+WX_lexilla:FILEPATH=D:/wxWidgets/lib/gcc_dll/libwxlexilla.a
 
 //Cleared.
 WX_lexillad:FILEPATH=WX_lexillad-NOTFOUND
 
 //Cleared.
-WX_media:FILEPATH=D:/wxWidgets/build/lib/gcc_x64_lib/libwxmsw33u_media.a
+WX_media:FILEPATH=D:/wxWidgets/lib/gcc_dll/libwxmsw33u_media.a
 
 //Cleared.
 WX_mediad:FILEPATH=WX_mediad-NOTFOUND
@@ -368,7 +368,7 @@ WX_mono:FILEPATH=WX_mono-NOTFOUND
 WX_monod:FILEPATH=WX_monod-NOTFOUND
 
 //Cleared.
-WX_net:FILEPATH=D:/wxWidgets/build/lib/gcc_x64_lib/libwxbase33u_net.a
+WX_net:FILEPATH=D:/wxWidgets/lib/gcc_dll/libwxbase33u_net.a
 
 //Cleared.
 WX_netd:FILEPATH=WX_netd-NOTFOUND
@@ -380,79 +380,79 @@ WX_odbc:FILEPATH=WX_odbc-NOTFOUND
 WX_odbcd:FILEPATH=WX_odbcd-NOTFOUND
 
 //Cleared.
-WX_png:FILEPATH=D:/wxWidgets/build/lib/gcc_x64_lib/libwxpng.a
+WX_png:FILEPATH=D:/wxWidgets/lib/gcc_dll/libwxpng.a
 
 //Cleared.
 WX_pngd:FILEPATH=WX_pngd-NOTFOUND
 
 //Cleared.
-WX_propgrid:FILEPATH=D:/wxWidgets/build/lib/gcc_x64_lib/libwxmsw33u_propgrid.a
+WX_propgrid:FILEPATH=D:/wxWidgets/lib/gcc_dll/libwxmsw33u_propgrid.a
 
 //Cleared.
 WX_propgridd:FILEPATH=WX_propgridd-NOTFOUND
 
 //Cleared.
-WX_qa:FILEPATH=D:/wxWidgets/build/lib/gcc_x64_lib/libwxmsw33u_qa.a
+WX_qa:FILEPATH=WX_qa-NOTFOUND
 
 //Cleared.
 WX_qad:FILEPATH=WX_qad-NOTFOUND
 
 //Cleared.
-WX_regex:FILEPATH=D:/wxWidgets/build/lib/gcc_x64_lib/libwxregexu.a
+WX_regex:FILEPATH=D:/wxWidgets/lib/gcc_dll/libwxregexu.a
 
 //Cleared.
 WX_regexd:FILEPATH=WX_regexd-NOTFOUND
 
 //Cleared.
-WX_ribbon:FILEPATH=D:/wxWidgets/build/lib/gcc_x64_lib/libwxmsw33u_ribbon.a
+WX_ribbon:FILEPATH=D:/wxWidgets/lib/gcc_dll/libwxmsw33u_ribbon.a
 
 //Cleared.
 WX_ribbond:FILEPATH=WX_ribbond-NOTFOUND
 
 //Cleared.
-WX_richtext:FILEPATH=D:/wxWidgets/build/lib/gcc_x64_lib/libwxmsw33u_richtext.a
+WX_richtext:FILEPATH=D:/wxWidgets/lib/gcc_dll/libwxmsw33u_richtext.a
 
 //Cleared.
 WX_richtextd:FILEPATH=WX_richtextd-NOTFOUND
 
 //Cleared.
-WX_scintilla:FILEPATH=D:/wxWidgets/build/lib/gcc_x64_lib/libwxscintilla.a
+WX_scintilla:FILEPATH=D:/wxWidgets/lib/gcc_dll/libwxscintilla.a
 
 //Cleared.
 WX_scintillad:FILEPATH=WX_scintillad-NOTFOUND
 
 //Cleared.
-WX_stc:FILEPATH=D:/wxWidgets/build/lib/gcc_x64_lib/libwxmsw33u_stc.a
+WX_stc:FILEPATH=D:/wxWidgets/lib/gcc_dll/libwxmsw33u_stc.a
 
 //Cleared.
 WX_stcd:FILEPATH=WX_stcd-NOTFOUND
 
 //Cleared.
-WX_tiff:FILEPATH=D:/wxWidgets/build/lib/gcc_x64_lib/libwxtiff.a
+WX_tiff:FILEPATH=D:/wxWidgets/lib/gcc_dll/libwxtiff.a
 
 //Cleared.
 WX_tiffd:FILEPATH=WX_tiffd-NOTFOUND
 
 //Cleared.
-WX_webview:FILEPATH=D:/wxWidgets/build/lib/gcc_x64_lib/libwxmsw33u_webview.a
+WX_webview:FILEPATH=D:/wxWidgets/lib/gcc_dll/libwxmsw33u_webview.a
 
 //Cleared.
 WX_webviewd:FILEPATH=WX_webviewd-NOTFOUND
 
 //Cleared.
-WX_xml:FILEPATH=D:/wxWidgets/build/lib/gcc_x64_lib/libwxbase33u_xml.a
+WX_xml:FILEPATH=D:/wxWidgets/lib/gcc_dll/libwxbase33u_xml.a
 
 //Cleared.
 WX_xmld:FILEPATH=WX_xmld-NOTFOUND
 
 //Cleared.
-WX_xrc:FILEPATH=D:/wxWidgets/build/lib/gcc_x64_lib/libwxmsw33u_xrc.a
+WX_xrc:FILEPATH=D:/wxWidgets/lib/gcc_dll/libwxmsw33u_xrc.a
 
 //Cleared.
 WX_xrcd:FILEPATH=WX_xrcd-NOTFOUND
 
 //Cleared.
-WX_zlib:FILEPATH=D:/wxWidgets/build/lib/gcc_x64_lib/libwxzlib.a
+WX_zlib:FILEPATH=D:/wxWidgets/lib/gcc_dll/libwxzlib.a
 
 //Cleared.
 WX_zlibd:FILEPATH=WX_zlibd-NOTFOUND
@@ -460,23 +460,14 @@ WX_zlibd:FILEPATH=WX_zlibd-NOTFOUND
 //Debug Level
 wxBUILD_DEBUG_LEVEL:BOOL=OFF
 
-//Set wxWidgets configuration (mswud;mswu)
+//Set wxWidgets configuration (mswu)
 wxWidgets_CONFIGURATION:STRING=mswu
 
-//Location of wxWidgets library configuration provider binary (wx-config).
-wxWidgets_CONFIG_EXECUTABLE:FILEPATH=wxWidgets_CONFIG_EXECUTABLE-NOTFOUND
-
-//No help, variable specified on the command line.
-wxWidgets_INCLUDE_DIRS:UNINITIALIZED=D:/wxWidgets/include
-
-//Path to wxWidgets libraries
-wxWidgets_LIB_DIR:PATH=D:/wxWidgets/build/lib/gcc_x64_lib
+//Cleared.
+wxWidgets_LIB_DIR:PATH=D:/wxWidgets/lib/gcc_dll
 
 //wxWidgets base/installation directory
 wxWidgets_ROOT_DIR:PATH=D:/wxWidgets
-
-//Use release and debug configurations?
-wxWidgets_USE_REL_AND_DBG:BOOL=ON
 
 //Location of wxWidgets resource file compiler binary (wxrc)
 wxWidgets_wxrc_EXECUTABLE:FILEPATH=D:/wxWidgets/build/lib/gcc_x64_lib/wxrc.exe
@@ -507,8 +498,6 @@ CMAKE_CACHE_MAJOR_VERSION:INTERNAL=3
 CMAKE_CACHE_MINOR_VERSION:INTERNAL=29
 //Patch version of cmake used to create the current loaded cache
 CMAKE_CACHE_PATCH_VERSION:INTERNAL=2
-//ADVANCED property for variable: CMAKE_COLOR_MAKEFILE
-CMAKE_COLOR_MAKEFILE-ADVANCED:INTERNAL=1
 //Path to CMake executable.
 CMAKE_COMMAND:INTERNAL=C:/mingw64/bin/cmake.exe
 //Path to cpack program executable.
@@ -547,10 +536,12 @@ CMAKE_EXE_LINKER_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
 CMAKE_EXE_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO
 CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_EXPORT_COMPILE_COMMANDS
+CMAKE_EXPORT_COMPILE_COMMANDS-ADVANCED:INTERNAL=1
 //Name of external makefile project generator.
 CMAKE_EXTRA_GENERATOR:INTERNAL=
 //Name of generator.
-CMAKE_GENERATOR:INTERNAL=MinGW Makefiles
+CMAKE_GENERATOR:INTERNAL=Ninja
 //Generator instance identifier.
 CMAKE_GENERATOR_INSTANCE:INTERNAL=
 //Name of generator platform.
@@ -670,9 +661,9 @@ COMPILER_HAS_DEPRECATED:INTERNAL=1
 //Test COMPILER_HAS_DEPRECATED_ATTR
 COMPILER_HAS_DEPRECATED_ATTR:INTERNAL=1
 //Details about finding wxWidgets
-FIND_PACKAGE_MESSAGE_DETAILS_wxWidgets:INTERNAL=[winmm;comctl32;uuid;oleacc;uxtheme;rpcrt4;shlwapi;version;wsock32][D:/wxWidgets/build/lib/gcc_x64_lib/mswu;D:/wxWidgets/include][v3.3.0()]
+FIND_PACKAGE_MESSAGE_DETAILS_wxWidgets:INTERNAL=[D:/wxWidgets/lib/gcc_dll/libwxmsw33u_core.a;D:/wxWidgets/lib/gcc_dll/libwxbase33u.a;D:/wxWidgets/lib/gcc_dll/libwxpng.a;D:/wxWidgets/lib/gcc_dll/libwxtiff.a;D:/wxWidgets/lib/gcc_dll/libwxjpeg.a;D:/wxWidgets/lib/gcc_dll/libwxzlib.a;D:/wxWidgets/lib/gcc_dll/libwxregexu.a;D:/wxWidgets/lib/gcc_dll/libwxexpat.a;winmm;comctl32;uuid;oleacc;uxtheme;rpcrt4;shlwapi;version;wsock32][D:/wxWidgets/lib/gcc_dll/mswu;D:/wxWidgets/include][cfound components: core base png tiff jpeg zlib regex expat ][v3.3.0()]
 //wxWidgets_LIB_DIR
-WX_LIB_DIR:INTERNAL=D:/wxWidgets/build/lib/gcc_x64_lib
+WX_LIB_DIR:INTERNAL=D:/wxWidgets/lib/gcc_dll
 //wxWidgets_ROOT_DIR
 WX_ROOT_DIR:INTERNAL=D:/wxWidgets
 //ADVANCED property for variable: WX_adv

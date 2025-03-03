@@ -36,7 +36,7 @@
 class WXDLLIMPEXP_ISHIKO_CHARTS wxChartsDataset
 {
 public:
-    wxChartsDataset(const wxString& name);
+    // wxChartsDataset(const wxString& name);
 
     const wxChartsDatasetId& GetId() const;
     const wxString& GetName() const;

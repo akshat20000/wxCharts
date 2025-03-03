@@ -1,59 +1,38 @@
-/*
-    Copyright (c) 2016-2024 Xavier Leclercq
+#ifndef WX_CHARTS_WXCHARTSLICEDATA_H
+#define WX_CHARTS_WXCHARTSLICEDATA_H
 
-    Permission is hereby granted, free of charge, to any person obtaining a
-    copy of this software and associated documentation files (the "Software"),
-    to deal in the Software without restriction, including without limitation
-    the rights to use, copy, modify, merge, publish, distribute, sublicense,
-    and/or sell copies of the Software, and to permit persons to whom the
-    Software is furnished to do so, subject to the following conditions:
+#include <wx/string.h>  // For wxString
+#include <wx/colour.h>  // For wxColor
+#include <wx/gdicmn.h>  // For wxBLACK
 
-    The above copyright notice and this permission notice shall be included in
-    all copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
-    THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-    IN THE SOFTWARE.
-*/
-
-#ifndef _WX_CHARTS_WXCHARTSLICEDATA_H_
-#define _WX_CHARTS_WXCHARTSLICEDATA_H_
-
-/// @file
-
-#include "dlimpexp.h"
-#include <wx/string.h>
-#include <wx/colour.h>
-
-/// The data associated with a slice in some charts like the pie and doughnut charts.
-
-/// \ingroup dataclasses
-class WXDLLIMPEXP_ISHIKO_CHARTS wxChartSliceData
+class wxChartSliceData
 {
 public:
     /// Constructs a wxChartSliceData instance.
     /// @param value The value of the slice.
     /// @param color The slice will be filled with this color.
-    /// @param label The label of the slice. By default this will
-    /// be used in the legend and the tooltips.
-    wxChartSliceData(wxDouble value, const wxColor &color,
-        const wxString &label);
+    /// @param label The label of the slice. 
+    /// @param tooltip The text shown in tooltips.
 
-    wxDouble GetValue() const;
-    void SetValue(wxDouble value);
+    // Default constructor
+    wxChartSliceData()
+        : m_value(0), m_color(wxColour(0, 0, 0)), m_label(""), m_toolTip("") {}
+
+    // Parameterized constructor
+    wxChartSliceData(double value, const wxColor &color, const wxString &label);
+         
+
+    double GetValue() const;
+    void SetValue(double value);
     const wxColor& GetColor() const;
     const wxString& GetLabel() const;
-
     wxString GetTooltipText() const;
 
 private:
-    wxDouble m_value;
+    double m_value;
     wxColor m_color;
     wxString m_label;
+    wxString m_toolTip; // Note: The member variable is named m_toolTip, not m_tooltip
 };
 
-#endif
+#endif  // WX_CHARTS_WXCHARTSLICEDATA_H

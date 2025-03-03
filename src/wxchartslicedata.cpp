@@ -19,24 +19,20 @@
     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
     IN THE SOFTWARE.
 */
-
+#define WXDLLIMPEXP_ISHIKO_CHARTS
 #include "wxchartslicedata.h"
 #include <sstream>
 
-wxChartSliceData::wxChartSliceData(wxDouble value,
-                                   const wxColor &color,
-                                   const wxString &label)
-    : m_value(value), m_color(color),
-    m_label(label)
-{
-}
+wxChartSliceData::wxChartSliceData(double value, const wxColor &color, const wxString &label)
+    : m_value(value), m_color(color), m_label(label), m_toolTip("") {}
 
-wxDouble wxChartSliceData::GetValue() const
+
+double wxChartSliceData::GetValue() const
 {
     return m_value;
 }
 
-void wxChartSliceData::SetValue(wxDouble value)
+void wxChartSliceData::SetValue(double value)
 {
     m_value = value;
 }

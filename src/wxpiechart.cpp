@@ -46,3 +46,20 @@ const wxDoughnutAndPieChartOptionsBase& wxPieChart::GetOptions() const
 {
     return *m_options;
 }
+
+void wxPieChart::DoSetSize(const wxSize &size) {
+    // Provide actual implementation
+}
+
+void wxPieChart::DoFit() {
+    // Provide actual implementation
+}
+
+void wxPieChart::DoDraw(wxGraphicsContext &gc, bool suppressTooltips) {
+    // Provide actual implementation
+}
+
+wxSharedPtr<wxVector<const wxChartsElement*>> wxPieChart::GetActiveElements(const wxPoint &point) {
+    // Provide actual implementation
+    return wxSharedPtr<wxVector<const wxChartsElement*>>();
+}

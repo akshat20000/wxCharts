@@ -21,10 +21,10 @@
 */
 
 /*
-    Part of this file were copied from the Chart.js project (http://chartjs.org/)
+    Part of this file was copied from the Chart.js project (http://chartjs.org/)
     and translated into C++.
 
-    The files of the Chart.js project have the following copyright and license.
+    The files of the Chart.js project have the following copyright and license:
 
     Copyright (c) 2013-2016 Nick Downie
     Released under the MIT license
@@ -35,39 +35,46 @@
 
 #include "wxlinechartctrl.h"
 #include <wx/filedlg.h>
+#include <wx/image.h>
+#include <wx/bitmap.h>
+#include <wx/dcclient.h>
 
+// ✅ First Constructor
 wxLineChartCtrl::wxLineChartCtrl(wxWindow *parent,
                                  wxWindowID id,
-                                 wxChartsCategoricalData::ptr &data,
+                                 wxSharedPtr<wxChartsCategoricalData> data,
                                  const wxChartsLineType &lineType,
                                  const wxPoint &pos,
                                  const wxSize &size,
                                  long style)
     : wxChartCtrl(parent, id, pos, size, style),
-    m_lineChart(data, lineType, size)
+      m_lineChart(data, lineType, size)
 {
     CreateContextMenu();
 }
 
-wxLineChartCtrl::wxLineChartCtrl(wxWindow *parent,
-                                 wxWindowID id,
-                                 wxChartsCategoricalData::ptr &data,
-                                 const wxChartsLineType &lineType,
-                                 const wxLineChartOptions &options,
-                                 const wxPoint &pos,
-                                 const wxSize &size,
-                                 long style)
-    : wxChartCtrl(parent, id, pos, size, style),
-    m_lineChart(data, lineType, options, size)
-{
-    CreateContextMenu();
-}
+// // ✅ Second Constructor (Ensures it Matches the Header)
+// wxLineChartCtrl::wxLineChartCtrl(wxWindow *parent,
+//                                  wxWindowID id,
+//                                  wxSharedPtr<wxChartsCategoricalData> data,
+//                                  const wxChartsLineType &lineType,
+//                                  const wxLineChartOptions &options,
+//                                  const wxPoint &pos,
+//                                  const wxSize &size,
+//                                  long style)
+//     : wxChartCtrl(parent, id, pos, size, style),
+//       m_lineChart(data, lineType, options, size)
+// {
+//     CreateContextMenu();
+// }
 
+// ✅ GetChart Method
 wxLineChart& wxLineChartCtrl::GetChart()
 {
     return m_lineChart;
 }
 
+// ✅ Context Menu Setup
 void wxLineChartCtrl::CreateContextMenu()
 {
     m_contextMenu.Append(wxID_SAVEAS, wxString("Save as"));
@@ -76,8 +83,7 @@ void wxLineChartCtrl::CreateContextMenu()
         [this](wxContextMenuEvent& evt) 
         {
             PopupMenu(&m_contextMenu, ScreenToClient(evt.GetPosition()));
-        }
-        );
+        });
 
     m_contextMenu.Bind(wxEVT_MENU,
         [this](wxCommandEvent &)
@@ -85,33 +91,34 @@ void wxLineChartCtrl::CreateContextMenu()
             wxFileDialog saveFileDialog(this, _("Save file"), "", "",
                 "JPEG files (*.jpg;*.jpeg)|*.jpg;*.jpeg|PNG files (*.png)|*.png",
                 wxFD_SAVE | wxFD_OVERWRITE_PROMPT);
+            
             if (saveFileDialog.ShowModal() == wxID_CANCEL)
                 return;
 
             wxString filename = saveFileDialog.GetPath();
-
             wxBitmapType type = wxBitmapType::wxBITMAP_TYPE_INVALID;
+
             switch (saveFileDialog.GetFilterIndex())
             {
-            case 0:
-                type = wxBitmapType::wxBITMAP_TYPE_JPEG;
-                if (wxImage::FindHandler(wxBitmapType::wxBITMAP_TYPE_JPEG) == 0)
-                {
-                    wxImage::AddHandler(new wxJPEGHandler());
-                }
-                break;
+                case 0:
+                    type = wxBitmapType::wxBITMAP_TYPE_JPEG;
+                    if (wxImage::FindHandler(wxBitmapType::wxBITMAP_TYPE_JPEG) == 0)
+                    {
+                        wxImage::AddHandler(new wxJPEGHandler());
+                    }
+                    break;
 
-            case 1:
-                type = wxBitmapType::wxBITMAP_TYPE_PNG;
-                if (wxImage::FindHandler(wxBitmapType::wxBITMAP_TYPE_PNG) == 0)
-                {
-                    wxImage::AddHandler(new wxPNGHandler());
-                }
-                break;
+                case 1:
+                    type = wxBitmapType::wxBITMAP_TYPE_PNG;
+                    if (wxImage::FindHandler(wxBitmapType::wxBITMAP_TYPE_PNG) == 0)
+                    {
+                        wxImage::AddHandler(new wxPNGHandler());
+                    }
+                    break;
             }
             
             m_lineChart.Save(filename, type, GetSize(), GetBackgroundColour());
         },
         wxID_SAVEAS
-        );
+    );
 }

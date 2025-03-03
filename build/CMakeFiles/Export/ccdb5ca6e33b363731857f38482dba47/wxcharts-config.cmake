@@ -60,7 +60,7 @@ add_library(wxcharts::wxcharts STATIC IMPORTED)
 
 set_target_properties(wxcharts::wxcharts PROPERTIES
   INTERFACE_INCLUDE_DIRECTORIES "C:/Program Files (x86)/wxcharts/include;C:/Program Files (x86)/wxcharts/include/wxcharts"
-  INTERFACE_LINK_LIBRARIES "winmm;comctl32;uuid;oleacc;uxtheme;rpcrt4;shlwapi;version;wsock32"
+  INTERFACE_LINK_LIBRARIES "D:/wxWidgets/lib/gcc_dll/libwxmsw33u_core.a;D:/wxWidgets/lib/gcc_dll/libwxbase33u.a;D:/wxWidgets/lib/gcc_dll/libwxpng.a;D:/wxWidgets/lib/gcc_dll/libwxtiff.a;D:/wxWidgets/lib/gcc_dll/libwxjpeg.a;D:/wxWidgets/lib/gcc_dll/libwxzlib.a;D:/wxWidgets/lib/gcc_dll/libwxregexu.a;D:/wxWidgets/lib/gcc_dll/libwxexpat.a;winmm;comctl32;uuid;oleacc;uxtheme;rpcrt4;shlwapi;version;wsock32"
 )
 
 # Load information for each installed configuration.

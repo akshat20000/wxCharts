@@ -24,10 +24,7 @@
 
 #include <D:\the_project\wallet_app\wxCharts\include\wx\charts\wxchartsdataset.h>
 
-wxChartsDataset::wxChartsDataset(const wxString& name)
-    : m_name(name)
-{
-}
+
 
 const wxChartsDatasetId& wxChartsDataset::GetId() const
 {

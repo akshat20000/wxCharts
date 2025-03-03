@@ -1,11 +1,15 @@
-#ifndef WXPIECHARTDATA_H
-#define WXPIECHARTDATA_H
+#ifndef WX_PIECHARTDATA_H
+#define WX_PIECHARTDATA_H
 
-#include <wx/charts/wxcharts.h>
+#include "wxcharts.h"
+#include "wxdoughnutandpiechartbase.h"
 #include <wx/colour.h>
 #include <vector>
 #include <string>
+#include <memory>
+#include <map>
 
+// ✅ Class representing an individual slice of the pie chart
 class wxPieChartSliceData {
 public:
     wxPieChartSliceData(const wxString& label, double value, const wxColour& colour)
@@ -21,20 +25,30 @@ private:
     wxColour m_colour;
 };
 
-class wxPieChartData {
+// ✅ Class representing pie chart data (without observer functionality)
+class MyPieChartData {
 public:
-    wxPieChartData() {}
+    using ptr = std::shared_ptr<MyPieChartData>;
+
+    MyPieChartData() {}
 
     void AppendSlice(const wxPieChartSliceData& slice) {
-        m_slices.push_back(slice);
+        // ✅ Convert wxPieChartSliceData to wxChartSliceData correctly
+        m_slices[slice.GetLabel()] = wxChartSliceData(
+            slice.GetValue(),  // Value (double)
+            slice.GetColour(), // Color (wxColour)
+            slice.GetLabel()   // Label (wxString)
+        );
+
+        // ❌ Removed NotifyObservers() since wxChartObservableValue doesn't exist
     }
 
-    const std::vector<wxPieChartSliceData>& GetSlices() const {
+    const std::map<wxString, wxChartSliceData>& GetSlices() const {
         return m_slices;
     }
 
 private:
-    std::vector<wxPieChartSliceData> m_slices;
+    std::map<wxString, wxChartSliceData> m_slices;
 };
 
-#endif // WXPIECHARTDATA_H
+#endif // WX_PIECHARTDATA_H

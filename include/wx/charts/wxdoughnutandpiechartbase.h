@@ -33,8 +33,8 @@
 
 /// @file
 
-#ifndef _WX_CHARTS_WXDOUGHNUTANDPIECHARTBASE_H_
-#define _WX_CHARTS_WXDOUGHNUTANDPIECHARTBASE_H_
+#ifndef WX_CHARTS_WXDOUGHNUTANDPIECHARTBASE_H_
+#define WX_CHARTS_WXDOUGHNUTANDPIECHARTBASE_H_
 
 #include "dlimpexp.h"
 #include "wxchart.h"
@@ -115,5 +115,5 @@ private:
     wxVector<SliceArc::ptr> m_slices;
     wxDouble m_total;
 };
+#endif // WX_DOUGHNUTANDPIECHARTBASE_H
 
-#endif
