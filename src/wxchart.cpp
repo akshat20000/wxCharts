@@ -20,9 +20,9 @@
     IN THE SOFTWARE.
 */
 
-#include "wxchart.h"
-#include "wxcharttooltip.h"
-#include "wxchartmultitooltip.h"
+#include "wx/charts/wxchart.h"
+#include "wx/charts/wxcharttooltip.h"
+#include "wx/charts/wxchartmultitooltip.h"
 
 wxChart::wxChart()
     : m_position(0, 0), m_size(0, 0), m_needsFit(true),

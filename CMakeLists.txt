@@ -13,7 +13,6 @@ project(wxcharts
 SET(LIBRARY_OUTPUT_PATH    ${wxcharts_BINARY_DIR}/bin CACHE PATH "Single output directory for building all libraries."   FORCE)
 SET(EXECUTABLE_OUTPUT_PATH ${wxcharts_BINARY_DIR}/bin CACHE PATH "Single output directory for building all executables." FORCE)
 
-
 set(CMAKE_CXX_STANDARD 11 CACHE STRING "C++ Standard")
 set(CMAKE_CXX_STANDARD_REQUIRED ON CACHE BOOL "")
 set(CMAKE_CXX_EXTENSIONS OFF CACHE BOOL "")
@@ -66,9 +65,10 @@ add_library(${PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 include(GenerateExportHeader)
 generate_export_header(${PROJECT_NAME})
 
+# Corrected include directories
 target_include_directories(${PROJECT_NAME}
-                           PUBLIC # use PUBLIC instead of PRIVATE because tests use it
-                               $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include/wx/charts>
+                           PUBLIC
+                               $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>  # Base include directory
                                $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}>
                            INTERFACE
                                $<INSTALL_INTERFACE:${CMAKE_INSTALL_FULL_INCLUDEDIR}>

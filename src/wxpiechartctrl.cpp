@@ -1,4 +1,5 @@
-#include "wxpiechartctrl.h"
+#include "wx/charts/wxpiechartctrl.h"
+#include "wx/charts/wxpiechart.h"
 
 wxPieChartCtrl::wxPieChartCtrl(wxWindow *parent,
                                wxWindowID id,
@@ -27,5 +28,5 @@ wxPieChartCtrl::wxPieChartCtrl(wxWindow *parent,
 
 wxChart &wxPieChartCtrl::GetChart() 
 {
-    return m_pieChart;
+    return static_cast<wxChart&>(m_pieChart);
 }

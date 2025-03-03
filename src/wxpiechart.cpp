@@ -20,22 +20,18 @@
     IN THE SOFTWARE.
 */
 
-#include "wxpiechart.h"
-#include "wxchartstheme.h"
+#include "wx/charts/wxpiechart.h"
+#include "wx/charts/wxchartstheme.h"
 
-wxPieChart::wxPieChart(wxPieChartData::ptr data,
-                       const wxSize &size)
+wxPieChart::wxPieChart(wxPieChartData::ptr data, const wxSize &size)
+    : wxDoughnutAndPieChartBase(data, size) 
+{
+    m_options = wxSharedPtr<wxPieChartOptions>(new wxPieChartOptions());
+}
+
+wxPieChart::wxPieChart(wxPieChartData::ptr data, wxSharedPtr<wxPieChartOptions> &options, const wxSize &size)
     : wxDoughnutAndPieChartBase(data, size),
-    m_options(wxChartsDefaultTheme->GetPieChartOptions())
-{
-}
-
-wxPieChart::wxPieChart(const wxPieChartData::ptr data,
-                       wxSharedPtr<wxPieChartOptions> &options,
-                       const wxSize &size)
-    : wxDoughnutAndPieChartBase(data, size), m_options(options)
-{
-}
+      m_options(options) {}
 
 const wxChartCommonOptions& wxPieChart::GetCommonOptions() const
 {

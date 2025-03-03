@@ -20,7 +20,7 @@
     IN THE SOFTWARE.
 */
 #define WXDLLIMPEXP_ISHIKO_CHARTS
-#include "wxchartslicedata.h"
+#include "wx/charts/wxchartslicedata.h"
 #include <sstream>
 
 wxChartSliceData::wxChartSliceData(double value, const wxColor &color, const wxString &label)

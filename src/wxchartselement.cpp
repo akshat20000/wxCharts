@@ -20,7 +20,7 @@
     IN THE SOFTWARE.
 */
 
-#include "wxchartselement.h"
+#include "wx/charts/wxchartselement.h"
 
 wxChartsElement::wxChartsElement()
     : m_tooltipProvider(wxSharedPtr<wxChartTooltipProvider>(new wxChartTooltipProviderStatic("", "", *wxBLACK)))

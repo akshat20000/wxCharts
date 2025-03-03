@@ -33,7 +33,7 @@
 
 /// @file
 
-#include "wxlinechartctrl.h"
+#include "wx/charts/wxlinechartctrl.h"
 #include <wx/filedlg.h>
 #include <wx/image.h>
 #include <wx/bitmap.h>

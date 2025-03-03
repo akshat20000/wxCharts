@@ -2,7 +2,8 @@
 #define WX_CHARTS_WXPIECHARTCTRL_H
 
 #include "wxchartctrl.h"
-#include "wx/charts/wxpiechart.h"
+#include "wxpiechart.h"
+
 
 class wxPieChartCtrl : public wxChartCtrl
 {

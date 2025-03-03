@@ -22,8 +22,10 @@
 
 /// @file
 
-#ifndef _WX_CHARTS_WXPIECHART_H_
-#define _WX_CHARTS_WXPIECHART_H_
+// #ifndef _WX_CHARTS_WXPIECHART_H_
+// #define _WX_CHARTS_WXPIECHART_H_
+#ifndef _WXDLLIMPEXP_ISHIKO_CHARTS_
+#define _WXDLLIMPEXP_ISHIKO_CHARTS_
 
 #include "wxdoughnutandpiechartbase.h"
 #include "wxpiechartoptions.h"
@@ -34,7 +36,7 @@
 /// A pie chart.
 
 /// \ingroup chartclasses
-class WXDLLIMPEXP_ISHIKO_CHARTS wxPieChart : public wxDoughnutAndPieChartBase ,wxChart
+class WXDLLIMPEXP_ISHIKO_CHARTS wxPieChart : public wxDoughnutAndPieChartBase 
 {
 public:
     wxPieChart(wxPieChartData::ptr data, const wxSize &size);
